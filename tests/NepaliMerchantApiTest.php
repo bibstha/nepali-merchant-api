@@ -38,6 +38,9 @@ class NepaliMerchantApiTest extends PHPUnit_Framework_TestCase
         $this->class->setGateway('esewa_epay');
         $this->class->setGatewayOptions($ePayPaymentOptions);
         $outputHtml = $this->class->createPayment();
+
+        // This is what you would do in a real application
+        // print $outputHtml;
     }
 }
 ?>

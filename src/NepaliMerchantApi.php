@@ -38,6 +38,6 @@ class NepaliMerchantApi
 
     public function createPayment()
     {
-        $this->gateway->createPayment();
+        return $this->gateway->createPayment();
     }
 }
