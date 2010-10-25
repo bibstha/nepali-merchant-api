@@ -1,9 +1,11 @@
 <?php
 
 $config['paymentGateway']['esewaEpay'] = array(
-    'isTest'              => true,
-    'testSuccessUrl'    => 'http://dummyhost',
-    'testFailureUrl'    => 'http://dummyhost',
-    'successUrl'        => 'http://dummyhost',
-    'failureUrl'        => 'http://dummyhost',
+    'isTest'              => false,
+    'testSuccessUrl'    => 'http://localhost/test/success',
+    'testFailureUrl'    => 'http://localhost/test/failure',
+    'successUrl'        => 'http://localhost/success',
+    'failureUrl'        => 'http://localhost/failure',
+    'postUrl'           => 'http://localhost',
+    'testPostUrl'       => 'http://localhost/test',
 );
