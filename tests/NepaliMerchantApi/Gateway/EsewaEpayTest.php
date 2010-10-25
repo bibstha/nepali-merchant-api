@@ -26,6 +26,8 @@ class NepaliMerchantApi_Gateway_EsewaEpayTest extends PHPUnit_Framework_TestCase
             'testFailureUrl',
             'successUrl',
             'failureUrl',
+            'postUrl',
+            'testPostUrl',
         );
         $options = $this->class->getOptions();
 
@@ -47,6 +49,19 @@ class NepaliMerchantApi_Gateway_EsewaEpayTest extends PHPUnit_Framework_TestCase
     {
         $this->setExpectedException('Exception');
         $this->class->setOptions('dummy string, where array should have been passed');
+    }
+
+    public function testCreatePayment()
+    {
+        $options = array(
+            'totalAmount'   => 500,
+            'amount'        => 400,
+        );
+
+        $this->class->setOptions($options);
+        $outputHtml = $this->class->createPayment();
+
+//        print $outputHtml;
     }
 }
 ?>

@@ -33,9 +33,11 @@ class NepaliMerchantApi_Gateway_EsewaEpay extends NepaliMerchantApi_Gateway_Abst
      * - transactionId
      * - successUrl
      * - failureUrl
+     * - postUrl
      * - isTest
      * - testSuccessUrl
      * - testFailureUrl
+     * - testPostUrl
      *
      * @see http://f1soft-host.com/checkout_esewa.php
      * 
@@ -59,7 +61,42 @@ class NepaliMerchantApi_Gateway_EsewaEpay extends NepaliMerchantApi_Gateway_Abst
 
     public function createPayment()
     {
+        if ($this->options['isTest']) {
+            $postUrl = $this->options['testPostUrl'];
+        } else {
+            $postUrl = $this->options['postUrl'];
+        }
+
+        $postVarKeys = array(
+            'tAmt' => 'totalAmount',
+            'amt'  => 'amount',
+            'txAmt' => 'taxAmount',
+            'psc' => 'productServiceCharge',
+            'pdc' => 'productDeliverCharge',
+            'scd' => 'merchantId',
+            'pid' => 'transactionId',
+        );
+
+        if ($this->options['isTest']) {
+          $postVarKeys['su'] = 'testSuccessUrl';
+          $postVarKeys['fu'] = 'testFailureUrl';
+        } else {
+          $postVarKeys['su'] = 'successUrl';
+          $postVarKeys['fu'] = 'failureUrl';
+        }
         
+        $postVars = array();
+        foreach ($postVarKeys as $postKey => $optionKey) {
+            if (isset($this->options[$optionKey])) {
+                $postVars[$postKey] = $this->options[$optionKey];
+            }
+        }
+
+        // the view file will have access to $postVars and $postUrl
+        ob_start();
+        require_once('EsewaEpay/redirect.phtml');
+        $output = ob_get_clean();
+        return $output;
     }
 }
 ?>

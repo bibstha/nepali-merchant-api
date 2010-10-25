@@ -24,20 +24,20 @@ class NepaliMerchantApiTest extends PHPUnit_Framework_TestCase
     {
         /**
          * These options are merged into default parameter
+         *
+         * @see config.php
+         *   all parameters from config.php can be replaced from here
          */
         $ePayPaymentOptions = array(
-            'isTest'          => true, // uses test or real url
-            'total_amount'  => 50,
+            'totalAmount'   => 50,
             'amount'        => 40,
-            'subscriber_id' => 'ntc',
-            'transaction_id'=> 'abc',
-//            'success_url' <- set by the module
-//            'failure_url' <- set by the module
+            'merchantId'    => 'ntc',
+            'transactionId' => 'abc',
         );
 
         $this->class->setGateway('esewa_epay');
         $this->class->setGatewayOptions($ePayPaymentOptions);
-        $this->class->createPayment();
+        $outputHtml = $this->class->createPayment();
     }
 }
 ?>
