@@ -14,11 +14,17 @@ class NepaliMerchantApi_Gateway_Factory
         switch ($gateway) {
             case 'dummy':
                 return new NepaliMerchantApi_Gateway_Dummy($config);
+                break;
 
             case 'esewa_epay':
                 return new NepaliMerchantApi_Gateway_EsewaEpay($config);
-                
-            case 'default':
+                break;
+
+            case 'nibl_epayment':
+                return new NepaliMerchantApi_Gateway_NiblEpayment($config);
+                break;
+
+            default:
                 throw new Exception('Gateway Not Found');
         }
     }

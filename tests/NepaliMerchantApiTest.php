@@ -44,4 +44,18 @@ class NepaliMerchantApiTest extends PHPUnit_Framework_TestCase
         // This is what you would do in a real application
         // print $outputHtml;
     }
+
+    public function testMakeNiblEpayment()
+    {
+        $niblEpaymentOptions = array(
+            'AMT' => 2000,
+            'PRN' => 'nepalimerchantapi',
+        );
+
+        $this->class->setGateway('nibl_epayment');
+        $this->class->setGatewayOptions($niblEpaymentOptions);
+        $outputHtml = $this->class->createPayment();
+
+        print $outputHtml;
+    }
 }
