@@ -1,6 +1,7 @@
 <?php
 require_once 'NepaliMerchantApi/Gateway/Dummy.php';
 require_once 'NepaliMerchantApi/Gateway/EsewaEpay.php';
+require_once 'NepaliMerchantApi/Gateway/NiblEpayment.php';
 
 /**
  * Description of Factory

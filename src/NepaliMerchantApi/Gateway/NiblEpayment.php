@@ -28,13 +28,13 @@ class NepaliMerchantApi_Gateway_NiblEpayment extends NepaliMerchantApi_Gateway_A
 
         // Setting Options to be sent in POST
         foreach (array_keys($this->_options) as $key) {
-            if (isset($config['paymentGateway']['NiblEpayment'][$key])) {
-                $this->_options[$key] = $config['paymentGateway']['NiblEpayment'][$key];
+            if (isset($config['paymentGateway']['niblEpayment'][$key])) {
+                $this->_options[$key] = $config['paymentGateway']['niblEpayment'][$key];
             }
         }
 
         // Setting Urls
-        $this->_postUrl = $config['paymentGateway']['NiblEpayment']['postUrl'];
+        $this->_postUrl = $config['paymentGateway']['niblEpayment']['postUrl'];
     }
 
     /**
