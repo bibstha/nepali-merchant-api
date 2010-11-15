@@ -9,6 +9,8 @@ require_once('NepaliMerchantApi.php');
  */
 class NepaliMerchantApiTest extends PHPUnit_Framework_TestCase
 {
+    protected $class = null;
+    
     public function setUp()
     {
         $this->class = new NepaliMerchantApi();
@@ -43,4 +45,3 @@ class NepaliMerchantApiTest extends PHPUnit_Framework_TestCase
         // print $outputHtml;
     }
 }
-?>

@@ -9,10 +9,16 @@ require_once('NepaliMerchantApi/Gateway/EsewaEpay.php');
 class NepaliMerchantApi_Gateway_EsewaEpayTest extends PHPUnit_Framework_TestCase
 {
     protected $class;
-
+    
     public function setUp()
     {
-        $this->class = new NepaliMerchantApi_Gateway_EsewaEpay();
+        require(NMA_ROOT . '/config.php');
+        $this->class = new NepaliMerchantApi_Gateway_EsewaEpay($config);
+    }
+
+    public function tearDown()
+    {
+        $this->class = null;
     }
 
     public function testOptions()
@@ -59,6 +65,7 @@ class NepaliMerchantApi_Gateway_EsewaEpayTest extends PHPUnit_Framework_TestCase
         );
 
         $this->class->setOptions($options);
+
         $outputHtml = $this->class->createPayment();
 
         $expectedOutput = <<<EOT
