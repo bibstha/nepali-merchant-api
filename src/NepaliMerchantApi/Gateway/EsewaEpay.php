@@ -12,11 +12,11 @@ class NepaliMerchantApi_Gateway_EsewaEpay extends NepaliMerchantApi_Gateway_Abst
     /**
      * @var array config
      */
-    protected $options;
+    protected $options = array();
     
-    public function __construct()
+    public function init()
     {
-        global $config;
+        $config = $this->getConfig();
         $this->options = $config['paymentGateway']['esewaEpay'];
     }
 
@@ -93,8 +93,12 @@ class NepaliMerchantApi_Gateway_EsewaEpay extends NepaliMerchantApi_Gateway_Abst
         }
 
         // the view file will have access to $postVars and $postUrl
+        /**
+         * Again require_once does not work here. Need to check
+         * where to and where not to use require_once
+         */
         ob_start();
-        require_once('EsewaEpay/redirect.phtml');
+        require('EsewaEpay/redirect.phtml');
         $output = ob_get_clean();
         return $output;
     }

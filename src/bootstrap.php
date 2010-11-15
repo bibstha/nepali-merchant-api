@@ -11,5 +11,3 @@ if (!defined('DS')) {
 
 set_include_path(NMA_ROOT . PATH_SEPARATOR . realpath(dirname(__FILE__) . "/../lib") . PATH_SEPARATOR .
     get_include_path());
-
-require_once(NMA_ROOT . DS . 'config.php');
