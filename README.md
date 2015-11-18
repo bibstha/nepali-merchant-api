@@ -5,13 +5,13 @@ bibekshrestha [at] gmail [dot] com.
 The api is to make it easier for merchant websites to communicate
 with existing and upcoming payment api
 
-INSTALLATION
+## Installation
 
-# Inside src folder, copy and paste config.default.php to config.php
-# Update urls as per application's settings in config.php
-# Example code is inside example/esewa_example.php
-# a complete application is demonstrated in example/completeflow
+* Inside src folder, copy and paste config.default.php to config.php
+* Update urls as per application's settings in config.php
+* Example code is inside example/esewa_example.php
+* a complete application is demonstrated in example/completeflow
 
-esewa_epay
-===================================================================
+## esewa_epay
+
 test account for esewa is saurab@f1soft.com:test
